@@ -1,0 +1,20 @@
+
+version: 2
+
+sources:
+  - name: stripe
+    database: raw
+
+    tables:
+      - name: payment
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+
+          - name: order_id
+            description: Foreign key to jaffle_shop orders
+
+          - name: amount
+            description: Amount in US cents
